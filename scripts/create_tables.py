@@ -4,27 +4,27 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
-    
+
     '''Function drops tables if they already exist'''
-    
+
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
-    
-    '''Functions creates appropriate tables'''
-    
+
+    '''Function creates appropriate tables'''
+
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def main():
-    
-    '''Function connects to Redshift Cluster, drops tables if they already exist, and create new tables'''
-    
+
+    '''Function connects to Redshift Cluster, drops tables if they already exist, and creates new tables'''
+
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 
